@@ -133,7 +133,7 @@ exports.toggleFavorite = async (req, res) => {
 // PATCH /api/movies/:id/rating - Actualiza el rating de una película
 exports.updateRating = async (req, res) => {
   const { id } = req.params;
-  const { rating } = req.body;
+  const { rating } = req.body || {};
 
   // Validación previa: rating debe ser entero entre 0 y 5
   if (typeof rating !== 'number' || !Number.isInteger(rating) || rating < 0 || rating > 5) {
